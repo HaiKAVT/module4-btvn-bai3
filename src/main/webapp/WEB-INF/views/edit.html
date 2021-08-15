@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<h3>EDIT SAN PHAM</h3>
+<form  th:object="${list}" method="post" novalidate="novalidate">
+  <table class="table" id="list"> <!--chú ý cái id=list, không có là lỗi-->
+    <tbody>
+    <tr>
+      <td>ID:</td>
+      <td><input placeholder="nhập id" th:field="*{id}"></td>
+      <td>Name:</td>
+      <td><input placeholder="nhập name" th:field="*{name}"></td>
+      <td>price:</td>
+      <td><input placeholder="nhập price" th:field="*{price}"></td>
+    <tr>
+      <td>Loai san pham:</td>
+      <td colspan="2">
+        <select th:field="*{category}">
+          <option th:each="lp: ${categories}" th:value="${lp.ten}" th:text="${lp.ten}">
+          </option>
+        </select>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+  <button type="submit" class="btn btn-success">Edit</button>
+</form>
+</body>
+</html>
